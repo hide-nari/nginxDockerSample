@@ -12,7 +12,6 @@ pipeline {
             steps {
                 echo 'container start'
                 sh 'docker container run -d --rm --name nginx -p 8081:80 test-nginx:v1'
-                sh 'sleep 60'
             }
         }
         stage('three') {
@@ -26,6 +25,22 @@ pipeline {
                 echo 'images docker ls'
                 sh 'docker images'
                 sh 'docker container ls'
+            }
+        }
+        stage('five') {
+            steps {
+                echo 'AWS login'
+                sh 'aws login'
+            }
+        }
+        stage('six') {
+            steps {
+                echo 'AWS ECR PUSH'
+            }
+        }
+        stage('seven') {
+            steps {
+                echo 'AWS ECS Create Service'
             }
         }
     }
