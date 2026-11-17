@@ -11,7 +11,6 @@ pipeline {
         stage('two') {
             steps {
                 echo 'container start'
-                sh 'docker rm nginx'
                 sh 'docker container run -d --rm --name nginx -p 8081:80 test-nginx:v1'
             }
         }
