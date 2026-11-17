@@ -10,13 +10,14 @@ pipeline {
         }
         stage('two') {
             steps {
-                echo 'docker run'
-                sh 'docker container run -p 8081:80 test-nginx:v1'
+                echo 'container start'
+                sh 'docker container run -d --name nginx -p 8081:80 test-nginx:v1'
             }
         }
         stage('three') {
             steps {
-                echo 'three'
+                echo 'container stop'
+                sh 'docker container stop nginx'
             }
         }
     }

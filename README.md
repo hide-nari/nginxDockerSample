@@ -2,11 +2,12 @@
 
 ```bash
 docker buildx build -t test-nginx:v1 . 
-docker container run -p 8080:80 test-nginx:v1
+docker container run -d --name nginx -p 8081:80 test-nginx:v1
+docker container stop nginx
 ```
 
 ### access
 
-- [http://localhost:8080/](http://localhost:8080/)
-- [http://localhost:8080/one.html](http://localhost:8080/one.html)
-- [http://localhost:8080/two.html](http://localhost:8080/two.html)
+- [http://localhost:8081/](http://localhost:8081/)
+- [http://localhost:8081/one.html](http://localhost:8081/one.html)
+- [http://localhost:8081/two.html](http://localhost:8081/two.html)
