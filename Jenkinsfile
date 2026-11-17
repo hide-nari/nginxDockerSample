@@ -12,6 +12,7 @@ pipeline {
             steps {
                 echo 'container start'
                 sh 'docker container run -d --rm --name nginx -p 8081:80 test-nginx:v1'
+                sh 'sleep 60'
             }
         }
         stage('three') {
