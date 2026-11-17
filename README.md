@@ -1,8 +1,8 @@
 ### settings
 
 ```bash
-docker build -t test-nginx . 
-docker run -p 8080:80 test-nginx
+docker buildx build -t test-nginx:v1 . 
+docker container run -p 8080:80 test-nginx:v1
 ```
 
 ### access
