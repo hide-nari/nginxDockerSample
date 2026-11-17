@@ -2,7 +2,7 @@
 
 ```bash
 docker buildx build -t test-nginx:v1 . 
-docker container run -d --name nginx -p 8081:80 test-nginx:v1
+docker container run -d --rm --name nginx -p 8081:80 test-nginx:v1
 docker container stop nginx
 ```
 
