@@ -36,6 +36,10 @@ pipeline {
         stage('six') {
             steps {
                 echo 'AWS ECR PUSH'
+                sh 'aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS --password-stdin 166666630572.dkr.ecr.ap-northeast-1.amazonaws.com'
+                sh 'docker build -t nginx-test .'
+                sh 'docker tag nginx-test:latest 166666630572.dkr.ecr.ap-northeast-1.amazonaws.com/nginx-test:latest'
+                sh 'docker push 166666630572.dkr.ecr.ap-northeast-1.amazonaws.com/nginx-test:latest'
             }
         }
         stage('seven') {
