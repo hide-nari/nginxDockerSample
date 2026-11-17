@@ -6,13 +6,10 @@ pipeline {
             steps {
                 echo 'one'
             }
-            steps {
-                sh 'docker buildx build -t test-nginx:v1 .'
-            }
         }
         stage('two') {
             steps {
-                sh 'docker container run -p 8081:80 test-nginx:v1'
+                echo 'two'
             }
         }
         stage('three') {
